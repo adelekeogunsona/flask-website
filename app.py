@@ -1,12 +1,55 @@
-from flask import Flask
+from flask import Flask, jsonify, render_template
 
 app = Flask(__name__)
 
+jobs = [
+    {
+        "id": 1,
+        "title": "Software Engineer",
+        "location": "San Francisco, CA",
+        "salary": 120000
+    },
+    {
+        "id": 2,
+        "title": "Product Manager",
+        "location": "New York, NY",
+        "salary": 130000
+    },
+    {
+        "id": 3,
+        "title": "Data Scientist",
+        "location": "Seattle, WA",
+        "salary": 110000
+    },
+    {
+        "id": 4,
+        "title": "Marketing Manager",
+        "location": "Chicago, IL",
+        "salary": 90000
+    },
+    {
+        "id": 5,
+        "title": "UX Designer",
+        "location": "Los Angeles, CA",
+        "salary": 100000
+    },
+    {
+        "id": 6,
+        "title": "Sales Representative",
+        "location": "Boston, MA",
+        "salary": 80000
+    }
+]
 
+# Index page
 @app.route("/")
-def hello_world():
-    return '<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Hello World</title></head><body><b>Hello, Bro</b></body></html>'
+def index():
+    page_title = 'Job Listing Portal'
+    return render_template('home.html',
+                           title=page_title,
+                           jobs=jobs)
 
-
-if __name__ == "__main__":
-    app.run(host='0.0.0.0', debug=True)
+# API for jobs
+@app.route('/api/jobs/')
+def job_page():
+    return jsonify(jobs)
