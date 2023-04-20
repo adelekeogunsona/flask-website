@@ -35,7 +35,7 @@
             <div class="card-body">
               <h4 class="card-title">{{ job['title'] }}</h4>
               <h6 class="card-subtitle mb-2 text-muted">Location: {{ job['location'] }}</h6>
-              <p class="card-text">Salary: ${{ job['salary'] }}</p>
+              <p class="card-text">Salary: {{ job['currency'] }}{{ job['salary'] }}</p>
               <button class="btn btn-primary">Apply Now</button>
             </div>
           </div>
