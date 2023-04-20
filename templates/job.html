@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block title %} {{ job.title }} {% endblock %}
+
+{% block content %}
+
+<!-- Job Listing Section -->
+<div class="container my-4">
+    <h1 class="mb-4">{{ job.title }}</h1>
+    <p class="mt-4"><strong>Date Added:</strong> {{ job.created_at.date() }}
+    </p>
+    <p><strong>Location:</strong> {{ job.location }}</p>
+    <p><strong>Salary:</strong> {{ job.currency }}{{ job.salary }}</p>
+    <h4 class="mt-4">Responsibilities</h4>
+    <p>{{ job.responsibilities }}</p>
+    <h4 class="mt-4">Requirements</h4>
+    <p>{{ job.requirements }}</p>
+</div>
+
+{% endblock %}
