@@ -1,6 +1,6 @@
 from sqlalchemy import create_engine, text
 
-db_details = "mysql+pymysql://efig7vyreytp16ikh2j9:pscale_pw_knW8lLjwcfaaoIl7fSt76huUtxWMwcVSzA7XU0wrknV@aws.connect.psdb.cloud/job-listing?charset=utf8mb4"
+db_details = ""
 
 engine = create_engine(
     db_details,
